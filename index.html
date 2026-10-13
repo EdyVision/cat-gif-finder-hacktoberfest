@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cat GIF Finder</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <p class="mark">Catalog</p>
+      <h1>Cat GIF Finder</h1>
+      <p class="lede">
+        Search public cat GIFs by tag. Try box, kitten, or cute, or leave the box empty for a random batch.
+      </p>
+    </header>
+
+    <main>
+      <form id="finder-form" class="finder" role="search">
+        <label class="query-label" for="query">Tag</label>
+        <div class="query-row">
+          <input
+            id="query"
+            name="query"
+            type="search"
+            list="tag-suggestions"
+            placeholder="box, kitten, cute"
+            autocomplete="off"
+            enterkeyhint="search"
+          >
+          <button id="find-button" type="submit">Find GIFs</button>
+        </div>
+        <datalist id="tag-suggestions"></datalist>
+      </form>
+
+      <p id="status" class="status" role="status" aria-live="polite">Loading the catalog…</p>
+
+      <ul id="results" class="results"></ul>
+      <button id="more" class="more" type="button" hidden>Show more</button>
+    </main>
+
+    <dialog id="viewer">
+      <form method="dialog">
+        <button type="submit" class="close">Close</button>
+      </form>
+      <img id="viewer-image" alt="">
+      <p id="viewer-caption"></p>
+    </dialog>
+
+    <footer>
+      <p>
+        GIFs come from
+        <a href="https://cataas.com">Cat as a Service</a>,
+        a public API that does not need a key.
+      </p>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>
